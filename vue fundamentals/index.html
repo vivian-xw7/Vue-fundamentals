@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/syles.css">
+    <title>Shopping List</title>
+</head>
+<body>
+
+    <div id="shopping-list">
+        <h1>{{ header.toLocaleUpperCase() }}</h1>
+        <input type="text" v-model="newItem" placeholder="Add an item" @keyup.enter="items.push(newItem)">
+        <button class="btn button-primary" @click="items.push(newItem)">Save Item</button>
+        <ul>
+            <li v-for="item in items">{{ item }}</li>
+        </ul>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var shoppingList = new Vue({
+            el: "#shopping-list",
+            data: {
+                header: "shopping list app",
+                newItem: "",
+                items: [
+                    "10 party hats",
+                    "2 board games",
+                    "20 cups"
+                ]
+            }
+        });
+    </script>
+
+</body>
+</html>
